@@ -24,17 +24,17 @@ const Joi = BaseJoi.extend(extension);
 
 module.exports.farmSchema = Joi.object({
     farm: Joi.object({
-        name: Joi.string().required().escapeHTML,
-        city: Joi.string().required().escapeHTML,
-        email: Joi.string().required().escapeHTML
+        name: Joi.string().required().escapeHTML(),
+        city: Joi.string().required().escapeHTML(),
+        email: Joi.string().required().escapeHTML()
     }).required()
 })
 
 
 module.exports.productSchema = Joi.object({
     product: Joi.object({
-        name: Joi.string().required().escapeHTML,
+        name: Joi.string().required().escapeHTML(),
         price: Joi.number().required(),
-        category: Joi.string().required().escapeHTML
+        category: Joi.string().required().escapeHTML()
     }).required()
 })

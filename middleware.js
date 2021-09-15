@@ -61,7 +61,7 @@ module.exports.isCreator = async (req, res, next) => {
 module.exports.isProductCreator = async (req, res, next) => {
     const { id } = req.params;
     const pro = await Product.findById(id).populate('farm');
-    console.log(req.user._id);
+    // console.log(req.user._id);
     if (pro.farm.creator.equals(req.user._id)) {
         return next();
     }
@@ -75,7 +75,7 @@ module.exports.isProductCreator = async (req, res, next) => {
 module.exports.hasAlreadyFarm = async (req, res, next) => {
     const id = req.user._id;
     const user = await User.findById(id);
-    console.log(user)
+    // console.log(user)
     if (user.farm) {
         req.flash('error', 'You already have a farm!')
         res.redirect('/farms')
