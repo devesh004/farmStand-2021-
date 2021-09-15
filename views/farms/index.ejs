@@ -1,0 +1,37 @@
+<% layout('layouts/boilerplate')%>
+    <!-- <%- include('../partials/flash')%> -->
+    <div class="container ">
+        <h1>
+            All farms
+        </h1>
+        <a href="/farms/new">new Farm</a>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <%for(let farm of farms){%>
+                <div class="col mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%=farm.name%>
+                            </h5>
+                            <p class="card-text">Click on button 'show more' to know more about the farm.Their you can
+                                check who owned this farm and what products are their<b>...</b></p>
+                            <a href="/farms/<%=farm.id%>" class="btn btn-primary">Show More</a>
+                        </div>
+                    </div>
+                </div>
+                <%}%>
+        </div>
+    </div>
+
+
+    <!-- <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+          <div class="card">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+          </div>
+        </div> -->

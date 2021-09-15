@@ -1,0 +1,24 @@
+<% layout('layouts/boilerplate')%>
+
+    <div class="container mt-5">
+        <div class="row text-center">
+            <h1 class="mb-4">
+                <%=category%> Products
+            </h1>
+            <div class="list-group col-md-6 offset-md-3">
+                <%for(let product of products){%>
+                    <a style="font-size: large; color: rgb(47, 47, 177);" class="list-group-item list-group-item-action"
+                        href="/products/<%=product._id%>">
+                        <b>
+                            <%=product.name%>
+                        </b>
+                    </a>
+                    <%}%>
+                        <%if(category!=='All'){%>
+                            <a class="list-group-item list-group-item-action active" href="/products"><b>All
+                                    Products</b></a>
+                            <% } %>
+            </div>
+
+        </div>
+    </div>

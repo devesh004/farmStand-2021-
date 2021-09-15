@@ -1,0 +1,58 @@
+<% layout('layouts/boilerplate')%>
+
+    <div class="container mt-5">
+        <div class="row mt-4">
+            <div class="col-md-6 offset-md-2">
+                <h1>
+                    <%=farm.name%>
+                </h1>
+                <div class="card shadow">
+                    <form novalidate class="needs-validation" action="/farms/<%=farm._id%>/products" method="POST">
+                        <div class="card-body">
+                            <h5 class="card-title">Add Product</h5>
+                            <input class="mb-2 form-control" type="text" id="name" name="product[name]"
+                                placeholder="product name" required>
+                            <input class="mb-2 form-control" type="text" id="price" name="product[price]"
+                                placeholder="price" required>
+                            <select class="mb-2" id="category" name="product[category]">
+                                <% for(let category of categories){ %>
+                                    <option value="<%=category%>">
+                                        <%=category%>
+                                    </option>
+                                    <% } %>
+                            </select>
+                            <div class="card-body">
+                                <button class="btn btn-success mb-2">Add Product</button>
+                                <a href="/farms/<%=farm._id%>" class="card-link btn btn-primary mb-2">Back To Farm</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!-- <form action="/farms/<%=farm._id%>/products" method="POST">
+        <label for="name">Product name</label>
+        <input type="text" id="name" name="name" placeholder="product name">
+        <label for="price">Price(unit)</label>
+        <input type="Number" id="price" name="price" placeholder="price">
+        <label for="category">Select Category</label>
+        <select id="category" name="category" id="">
+            <% for(let category of categories){ %>
+                <option value="<%=category%>">
+                    <%=category%>
+                </option>
+                <% } %>
+        </select>
+        <button>Submit</button>
+    </form> -->

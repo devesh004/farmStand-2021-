@@ -1,0 +1,74 @@
+<% layout('layouts/boilerplate')%>
+
+    <div class="container mt-5">
+        <div class="row offset-md-3">
+            <div class="col-md-6">
+                <h1>
+                    <%=farm.name %>
+                </h1>
+                <ul>
+                    <li>
+                        City: <%=farm.city%>
+                    </li>
+                    <li>
+                        Email: <%=farm.email%>
+                    </li>
+                    <li>
+                        Owner: <%=farm.creator.username%>
+                    </li>
+                </ul>
+                <% if(currUser && farm.creator.equals(currUser._id)){ %>
+                    <a class="btn btn-success" href="/farms/<%=farm.id%>/edit">Edit Farm</a>
+                    <!-- <button class="btn btn-danger btn">Delete</button> -->
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Delete
+                    </button>
+                    <% } %>
+            </div>
+            <div class="col-md-6">
+                <h2>Products</h2>
+                <ul>
+                    <% for(let product of farm.products){ %>
+                        <li>
+                            <h6>
+                                <%=product.name%>
+                            </h6>
+                            <a href="/products/<%=product._id%>">
+                                See product
+                            </a>
+                        </li>
+                        <% } %>
+                </ul>
+                <% if(currUser&& farm.creator.equals(currUser._id)){ %>
+                    <a class="btn btn-primary" href="/farms/<%=farm.id%>/products/new">Add Product</a>
+                    <% } %>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Button trigger modal -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Alert</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure want to delete this farm?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                    <form class="d-inline" action="/farms/<%=farm._id%>?_method=DELETE" method="POST">
+                        <button class="btn btn-danger btn">Yes</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/farms/home">Home</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" href="/farms">All Farms</a>
+                <a class="nav-link" href="/products">All Product</a>
+                <a class="nav-link" href="/farms/new">New Farm</a>
+            </div>
+            <div class="navbar-nav" style="margin-left: auto;">
+                <% if(!currUser){ %>
+                    <a class="nav-link" href="/users/login">Login</a>
+                    <a class="nav-link" href="/users/signup">SignUp</a>
+                    <% } else{ %>
+                        <a class="nav-link" href="/farms/myfarm">My Farm</a>
+                        <li class="nav-link">
+                            <%= currUser.username%>
+                        </li>
+                        <a class="nav-link" href="/users/logout">LogOut</a>
+                        <% } %>
+            </div>
+        </div>
+    </div>
+</nav>

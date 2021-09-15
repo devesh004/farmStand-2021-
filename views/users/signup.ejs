@@ -1,0 +1,40 @@
+<% layout('layouts/boilerplate')%>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card shadow">
+                    <!-- image -->
+                    <!-- <img class="img-fluid card-img-top"
+                    src="https://images.unsplash.com/photo-1457530378978-8bac673b8062?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTJ8fGZhcm1lcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                    alt=""> -->
+                    <div class="card-body">
+                        <h5 class="card-title">Sign Up</h5>
+                        <form novalidate class="needs-validation" action="/users/signup" method="POST">
+                            <div class="mb-3">
+                                <label class="form-label" for="name">Username</label>
+                                <input class="form-control" type="text" id="name" name="username" placeholder="Username"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="phoneNo">Phone Number</label>
+                                <input class="form-control" type="number" id="phoneNo" name="phoneNo"
+                                    placeholder="Enter Phone Number" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="email">E-mail</label>
+                                <input class="form-control" type="email" id="email" name="email" placeholder="e-mail"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="password">Password</label>
+                                <input class="form-control" type="password" id="password" name="password"
+                                    placeholder="create password" required>
+                            </div>
+                            <button class="btn btn-success">Sign Up</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
