@@ -110,6 +110,10 @@ app.use('/farms', farmsRoute);
 app.use('/products', productsRoute);
 app.use('/users', usersRoute);
 
+
+app.get('/', (req, res) => {
+    res.render('../home.ejs')
+})
 // app.use((err, req, res, next) => {
 //     console.log(err.name);
 //     if (err.name === 'ValidationError') {

@@ -13,9 +13,7 @@ router.get('/', catchAsync(async (req, res) => {
     res.render('farms/index', { farms });
 }))
 
-router.get('/home', (req, res) => {
-    res.render('../home.ejs')
-})
+
 
 router.get('/new', isLoggedIn, hasAlreadyFarm, (req, res) => {
     //req.flash('success', 'AFSDGFsgsdgdhjkdfhvjfkdvhdfjkvhdkfjvhfjdvnfjdvhvjsgdffsjsdjkcnsjkcnsdjcnsdjcnsdjcnsjdc')
