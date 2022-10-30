@@ -33,7 +33,7 @@ router.post('/signup', catchAsync(async (req, res, next) => {
 
 
 router.get('/login', alreadyLoggedIn, (req, res, next) => {
-    res.render('users/login')
+    res.render('users/login');
 })
 
 router.post('/login', passport.authenticate('local', { failureFlash: true, failureRedirect: '/users/login' }), catchAsync(async (req, res, next) => {
