@@ -8,7 +8,7 @@ const { findById } = require('./models/product');
 module.exports.isLoggedIn = (req, res, next) => {
     // console.log("REQ.USER", req.user)
     if (!req.isAuthenticated()) {
-        req.flash('error', 'You must signed in First')
+        req.flash('error', 'You must signed in First');
         req.session.returnTo = req.originalUrl;
         // console.log(req.session)  //a property returnTo added to session 
         return res.redirect('/users/login');
